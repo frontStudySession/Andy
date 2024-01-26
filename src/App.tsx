@@ -1,6 +1,5 @@
-import React from "react";
-import "./App.css";
 import { Hello } from "@app/Hello";
+import "./App.css";
 
 function App() {
   return <Hello />;
