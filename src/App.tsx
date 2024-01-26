@@ -1,5 +1,5 @@
-import { Hello } from "@app/Hello";
 import "./App.css";
+import { Hello } from "@app/Hello";
 
 function App() {
   return <Hello />;
