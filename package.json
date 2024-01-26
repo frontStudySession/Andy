@@ -84,10 +84,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {
-    "craco": "^0.0.3",
-    "react-app-alias": "^2.2.2"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
