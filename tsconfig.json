@@ -13,7 +13,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true
   },
-  "include": ["./src", "schema"],
+  "include": ["./src", "schema", "src/components/types"],
   "exclude": ["node_modules", "build"],
   "extends": "./tsconfig.paths.json"
 }
