@@ -19,8 +19,6 @@
 .env.production.local
 .eslintignore
 .prettierignore
-.eslintrc.js
-.prettierrc.js
 
 npm-debug.log*
 yarn-debug.log*
