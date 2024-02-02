@@ -14,10 +14,21 @@
 # misc
 .DS_Store
 .env.local
-.env.development.local
+.env.development.local`
 .env.test.local
 .env.production.local
+.eslintignore
+.prettierignore
+.eslintrc.js
+.prettierrc.js
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# env
+.env
+
+# eject
+.config/*
+.scripts/*

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { TextInputType } from "../types/Input/input.types";
-import { CSSProperties } from "react";
+import styled from 'styled-components';
+import { TextInputType } from '../types/Input/input.types';
+import { CSSProperties } from 'react';
 
 const Input = styled.input`
   display: block;
@@ -22,16 +22,16 @@ export const TextInput = ({
 
   const errorStyle: CSSProperties = error
     ? {
-        borderWidth: "1px 1px 1px 10px",
-        borderStyle: "solid",
+        borderWidth: '1px 1px 1px 10px',
+        borderStyle: 'solid',
         borderColor:
-          "rgb(191, 22, 80) rgb(191, 22, 80) rgb(191, 22, 80) rgb(236, 89, 144)",
-        borderImage: "initial",
-        background: "rgb(251, 236, 242)",
-        marginBottom: "20px",
+          'rgb(191, 22, 80) rgb(191, 22, 80) rgb(191, 22, 80) rgb(236, 89, 144)',
+        borderImage: 'initial',
+        background: 'rgb(251, 236, 242)',
+        marginBottom: '20px',
       }
     : {
-        marginBottom: "20px",
+        marginBottom: '20px',
       };
   return (
     <div>

@@ -1,5 +1,5 @@
-import { Form } from "@app/app/Form";
-import { styled } from "styled-components";
+import { Form } from '@app/app/Form';
+import { styled } from 'styled-components';
 
 const FormLayout = styled.div`
   width: 100%;
