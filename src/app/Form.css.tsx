@@ -57,3 +57,12 @@ export const errorStyle = (error: FieldError) => {
         marginBottom: '20px',
       };
 };
+
+export const TotalWrap = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 16px;
+`;
+
+export const Preview = styled.div``;
