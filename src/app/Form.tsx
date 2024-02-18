@@ -1,87 +1,113 @@
-import { TextInput } from '@app/components/Input/TextInput';
-import { useForm } from 'react-hook-form';
+import { FieldError, useForm } from 'react-hook-form';
+import { Button, Form, Input, Section, Select, errorStyle } from './Form.css';
 
 type FormType = {
   firstName: string;
   lastName: string;
   email: string;
-  mobileNum: number;
+  mobile: number;
+  title: string;
+  developer: 'Yes' | 'No';
 };
 
-export const Form = () => {
+export const SubmitForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormType>();
+  } = useForm<FormType>({
+    defaultValues: {
+      developer: 'Yes',
+    },
+  });
 
-  const firstName = {
-    register: register('firstName', {
-      required: '필수 값',
-      minLength: {
-        value: 1,
-        message: '최대 한 글자 이상 입력해야합니다.',
-      },
-    }),
-    errors: errors.firstName,
-  };
-  const lastName = {
-    register: register('lastName', {
-      required: '필수 값',
-      minLength: {
-        value: 1,
-        message: '최대 한 글자 이상 입력해야합니다.',
-      },
-    }),
-    errors: errors.lastName,
-  };
-  const email = {
-    register: register('email', {
-      pattern: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    }),
-    errors: errors.email,
-  };
-  const mobileNum = {
-    register: register('mobileNum', {
-      required: '필수 값',
-      minLength: {
-        value: 11,
-        message: '최대 11글자 이상 입력해야합니다.',
-      },
-    }),
-    errors: errors.mobileNum,
-  };
+  const onSubmitAction = (data: FormType) => console.log(data);
 
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        console.log(data);
-      })}
-    >
-      <TextInput
-        id="firstName"
-        register={firstName.register}
-        error={firstName.errors}
-        placeholder={'First Name'}
-      />
-      <TextInput
-        id="lastName"
-        register={lastName.register}
-        error={lastName.errors}
-        placeholder={'Last Name'}
-      />
-      <TextInput
-        id="email"
-        register={email.register}
-        error={email.errors}
-        placeholder={'Email'}
-      />
-      <TextInput
-        id="mobileNum"
-        register={mobileNum.register}
-        error={mobileNum.errors}
-        placeholder={'Mobile Number'}
-      />
-    </form>
+    <Form onSubmit={handleSubmit(onSubmitAction)}>
+      <div>
+        {/* FirstName Section */}
+        <Section>
+          <label htmlFor="firstName">FirstName</label>
+          <Input
+            {...register('firstName', {
+              required: true,
+              minLength: 1,
+            })}
+            id="firstName"
+            style={errorStyle(errors.firstName as FieldError)}
+          />
+        </Section>
+        {/* LastName Section */}
+        <Section>
+          <label htmlFor="lastName">LastName</label>
+          <Input
+            {...register('lastName', {
+              required: true,
+              minLength: 1,
+            })}
+            id="lastName"
+            style={errorStyle(errors.lastName as FieldError)}
+          />
+        </Section>
+        {/* Email Section */}
+        <Section>
+          <label htmlFor="email">Email</label>
+          <Input
+            {...register('email', {
+              required: true,
+              pattern: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+            })}
+            id="email"
+            style={errorStyle(errors.email as FieldError)}
+          />
+        </Section>
+        {/* Phone Number Section */}
+        <Section>
+          <label htmlFor="mobile">PhonNum</label>
+          <Input
+            {...register('mobile', {
+              required: true,
+              pattern: /^[0-9]*$/,
+              minLength: 10,
+              maxLength: 11,
+            })}
+            id="mobile"
+            style={errorStyle(errors.mobile as FieldError)}
+          />
+        </Section>
+        {/* Title Section */}
+        <Section>
+          <label htmlFor="title">Title</label>
+          <Select {...register('title', { required: true })}>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Dr">Dr</option>
+          </Select>
+        </Section>
+        {/* Title Section */}
+        <Section>
+          <label htmlFor="developer">Developer</label>
+          <div>
+            <input
+              {...register('developer', { required: true })}
+              type="radio"
+              value="Yes"
+            />
+            <span>Yes</span>
+          </div>
+          <div>
+            <input
+              {...register('developer', { required: true })}
+              type="radio"
+              value="No"
+            />
+            <span>No</span>
+          </div>
+        </Section>
+      </div>
+      <Button onClick={handleSubmit(onSubmitAction)}>Submit</Button>
+    </Form>
   );
 };
