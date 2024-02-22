@@ -1,5 +1,6 @@
 import { SubmitForm } from '@app/app/Form';
 import { styled } from 'styled-components';
+import { RouterComponent } from './app/router/RouterComponent';
 
 const FormLayout = styled.div`
   width: 100%;
@@ -17,10 +18,11 @@ const Title = styled.p`
 
 function App() {
   return (
-    <FormLayout>
-      <Title>React-Hook-Form</Title>
-      <SubmitForm />
-    </FormLayout>
+    // <FormLayout>
+    //   <Title>React-Hook-Form</Title>
+    //   <SubmitForm />
+    // </FormLayout>
+    <RouterComponent />
   );
 }
 
